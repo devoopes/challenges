@@ -57,7 +57,7 @@ After looking over the previous soltion you will see that you can make the numbe
 
 Looking at the above chart you can see that p<sub>1</sub> and p<sub>2</sub> are swapped, not d<sub>3</sub> and d<sub>4</sub>.
 
-Leading to --> <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Spent the day reading papers and rabbit hole of wiki articles going into the deep math of how Hamming Error-Correcting Code works for <a href="https://twitter.com/hashtag/DefconIsCancelled?src=hash&amp;ref_src=twsrc%5Etfw">#DefconIsCancelled</a> challenge only to find that its a simple switch of numbers to make a funny number. I learned a lot,but goddamnit <a href="https://twitter.com/ploppowaffles?ref_src=twsrc%5Etfw">@ploppowaffles</a> <a href="https://t.co/hhSMKhwtSW">pic.twitter.com/hhSMKhwtSW</a></p>&mdash; devoops (@devoopes) <a href="https://twitter.com/devoopes/status/1422799627003174914?ref_src=twsrc%5Etfw">August 4, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+Leading to --> <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Spent the day reading papers and rabbit hole of wiki articles going into the deep math of how Hamming Error-Correcting Code works for <a href="https://twitter.com/hashtag/DefconIsCancelled?src=hash&amp;ref_src=twsrc%5Etfw">#DefconIsCancelled</a> challenge only to find that its a simple switch of numbers to make a funny number. I learned a lot,but goddamnit <a href="https://twitter.com/ploppowaffles?ref_src=twsrc%5Etfw">@ploppowaffles</a> <a href="https://t.co/hhSMKhwtSW">pic.twitter.com/hhSMKhwtSW</a></p>&mdash; devoops (@devoopes) <a href="https://twitter.com/devoopes/status/1422799627003174914?ref_src=twsrc%5Etfw">August 4, 2021</a></blockquote>
 
 
 #### Solution:
