@@ -1,0 +1,69 @@
+# DC Zia Defcon 29 Challenege
+
+
+<blockquote class="twitter-tweet"><p lang="und" dir="ltr">ZGN6aWElMjUyRW5ldCUyNTJGc3VwZXIlMjUyRHNwYWNlJTI1MkRob3VzZSUyNTJFaHRtbA==<a href="https://twitter.com/hashtag/badgelife?src=hash&amp;ref_src=twsrc%5Etfw">#badgelife</a> <a href="https://twitter.com/hashtag/yolo?src=hash&amp;ref_src=twsrc%5Etfw">#yolo</a> <a href="https://twitter.com/hashtag/defcon29?src=hash&amp;ref_src=twsrc%5Etfw">#defcon29</a></p>&mdash; DC Zia - 💾 (@DCZia505) <a href="https://twitter.com/DCZia505/status/1423486300363972608?ref_src=twsrc%5Etfw">August 6, 2021</a></blockquote>
+
+- Base64 String:
+
+    `ZGN6aWElMjUyRW5ldCUyNTJGc3VwZXIlMjUyRHNwYWNlJTI1MkRob3VzZSUyNTJFaHRtbA==`
+
+- URL Encoded:
+
+    `dczia%252Enet%252Fsuper%252Dspace%252Dhouse%252Ehtml` --> `dczia.net/super-space-house.html`
+
+- QR Code
+https://zxing.org/w/decode?u=http%3A%2F%2Fdczia.net%2Fimages%2Fqrcode.png
+
+    ```binary
+    01100010 00111001 01100100 00110010 01100110 00110111 01100100 01100110 00110010 00110000 00111001 00110100 00111001 00110011 01100101 00110100 01100010 01100101 01100101 00111000 00110110 01100001 00110000 01100110 01100010 00111000 00110101 00110000 00110110 00111001 01100001 00110010 00110100 00110100 00110011 00111001 01100101 00110100 00111000 00110001 00110011 00110001 00110110 00110010 01100110 01100101 01100011 00110111 00110010 00111001 00110111 00110100 00110011 01100010 01100101 00110111 00110101 01100101 00110010 01100100 01100110 00110000 00110001 01100110 00110100 01100101 00110000 00110101 01100011 00111001 00110100 01100101 01100010 00110011 00110011 01100101 01100101 00110100 01100011 01100110 00111001 01100100 00110111 00110111 01100100 00110110 00111001 00110110
+    ```
+
+- Binary to Hex:
+
+    `b9d2f7df209493e4bee86a0fb85069a24439e4813162fec729743be75e2df01f4e05c94eb33ee4cf9d77d696`
+
+- HTML Comments
+
+    ```html
+    Why are you looking at the source code?
+    It is boring.
+    21
+    ```
+
+    ```html
+    <!--VectorVector Cipher FeedBack Loops: IHEnf505%20c%206-->
+    <!--Don't forget your UTF-8 keys DCZIA: GEYqa505%20a%204-->
+    ```
+
+- Remove URL Encoding
+
+    ```html
+    <!--VectorVector Cipher FeedBack Loops: IHEnf505 c 6-->
+    <!--Don't forget your UTF-8 keys DCZIA: GEYqa505 a 4-->
+    ```
+
+- Rot 21
+
+    ` IHEnf505 c 6` -> `DCZia505 x 6`
+
+- Vigenère Decode
+
+    `GEYqa505 a 4` + KEY:`DCZia` -> `DCZia505 x 4`
+
+    Key: `DCZia505DCZia505DCZia505DCZia505`
+    IV in Hex: `DCZia505DCZia505DCZia505DCZia505DCZia505DCZia505`
+    Mode: CFB
+
+- AES Decrypt
+
+    `IR @IHEnf505: xmtygtytsjrfqtwyuqjfxj`
+
+- Rot 21
+
+    `DM @DCZia505: shotbotonemalortplease`
+
+- Solve
+
+    > shotbotonemalortplease
+
+[Cyberchef output](https://gchq.github.io/CyberChef/#recipe=From_Binary('Space',8)AES_Decrypt(%7B'option':'UTF8','string':'DCZia505DCZia505DCZia505DCZia505'%7D,%7B'option':'Hex','string':'DCZia505DCZia505DCZia505DCZia505DCZia505DCZia505'%7D,'CFB','Hex','Raw',%7B'option':'Hex','string':''%7D,%7B'option':'Hex','string':''%7D)URL_Decode()ROT13(true,true,false,21)&input=MDExMDAwMTAgMDAxMTEwMDEgMDExMDAxMDAgMDAxMTAwMTAgMDExMDAxMTAgMDAxMTAxMTEgMDExMDAxMDAgMDExMDAxMTAgMDAxMTAwMTAgMDAxMTAwMDAgMDAxMTEwMDEgMDAxMTAxMDAgMDAxMTEwMDEgMDAxMTAwMTEgMDExMDAxMDEgMDAxMTAxMDAgMDExMDAwMTAgMDExMDAxMDEgMDExMDAxMDEgMDAxMTEwMDAgMDAxMTAxMTAgMDExMDAwMDEgMDAxMTAwMDAgMDExMDAxMTAgMDExMDAwMTAgMDAxMTEwMDAgMDAxMTAxMDEgMDAxMTAwMDAgMDAxMTAxMTAgMDAxMTEwMDEgMDExMDAwMDEgMDAxMTAwMTAgMDAxMTAxMDAgMDAxMTAxMDAgMDAxMTAwMTEgMDAxMTEwMDEgMDExMDAxMDEgMDAxMTAxMDAgMDAxMTEwMDAgMDAxMTAwMDEgMDAxMTAwMTEgMDAxMTAwMDEgMDAxMTAxMTAgMDAxMTAwMTAgMDExMDAxMTAgMDExMDAxMDEgMDExMDAwMTEgMDAxMTAxMTEgMDAxMTAwMTAgMDAxMTEwMDEgMDAxMTAxMTEgMDAxMTAxMDAgMDAxMTAwMTEgMDExMDAwMTAgMDExMDAxMDEgMDAxMTAxMTEgMDAxMTAxMDEgMDExMDAxMDEgMDAxMTAwMTAgMDExMDAxMDAgMDExMDAxMTAgMDAxMTAwMDAgMDAxMTAwMDEgMDExMDAxMTAgMDAxMTAxMDAgMDExMDAxMDEgMDAxMTAwMDAgMDAxMTAxMDEgMDExMDAwMTEgMDAxMTEwMDEgMDAxMTAxMDAgMDExMDAxMDEgMDExMDAwMTAgMDAxMTAwMTEgMDAxMTAwMTEgMDExMDAxMDEgMDExMDAxMDEgMDAxMTAxMDAgMDExMDAwMTEgMDExMDAxMTAgMDAxMTEwMDEgMDExMDAxMDAgMDAxMTAxMTEgMDAxMTAxMTEgMDExMDAxMDAgMDAxMTAxMTAgMDAxMTEwMDEgMDAxMTAxMTA)
