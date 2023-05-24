@@ -1,4 +1,4 @@
-# This year's [THOTCON](https://www.thotcon.org/) CTF Challenge
+# 2023 [THOTCON](https://www.thotcon.org/) CTF Challenge
 
 [Sakebomb](https://twitter.com/Sakebomb) and THOTCON introduce this year's Digerati's Atlas as Sigma Echo. This year's challenge built out into three different parts. The badge, The physical world and the game. The game being a different take on CTF's being the world and challenges were for you to find in a "Minecraft" style world build in [Minetest](https://www.minetest.net/) 
 
@@ -36,7 +36,7 @@ N     0 T    _K     3 U/V   1 N    _B     4 C     0 N    _L     0 L     Z
 
 `Flag{base64_is_easy}`
 
-## Raido Challenges
+## Radio Challenges
 
 **Challenge 4**
 >Element: Physical
@@ -164,50 +164,50 @@ _Never posted_
 
 **Challenge 17 - A Shocking Turn**
 >Element: Virtual
-location: Bank
-We intercepted a photo from the contact and identified this outlet: What type of outlet is it? (IE: flag{type-x})
-Photo URL: http://sigmaecho.io/static/misc/plug.jpg
+>location: Bank
+>We intercepted a photo from the contact and identified this outlet: What type of outlet is it? (IE: flag{type-x})
+>Photo URL: http://sigmaecho.io/static/misc/plug.jpg
 
 `flag{type-e}` 
 
 **Challenge 18 - Lean, Mean, & Green**
 >Element: Virtual
-Location: Bank
-We found this bank note at the scene. But we can't tell what country its from.
-Photo URL: http://sigmaecho.io/static/misc/money.jpg
+>Location: Bank
+>We found this bank note at the scene. But we can't tell what country its from.
+>Photo URL: http://sigmaecho.io/static/misc/money.jpg
 ![](assets/money.jpg")
 
 `flag{israel}`
 
 **Challenge 19 - Autobahn & Cabbage Heads**
 >Element: Virtual
-Location: Bank
-This device was intercepted in the mail. Who is its manufacturer? (IE: flag{manufacturer_name})
-Photo URL: http://sigmaecho.io/static/misc/part.jpg
+>Location: Bank
+>This device was intercepted in the mail. Who is its manufacturer? (IE: flag{manufacturer_name})
+>Photo URL: http://sigmaecho.io/static/misc/part.jpg
 ![](assets/part.jpg")
 
 `flag{Hyundai}`
 
 **Challenge 20 - Aeroespacial Awareness**
 >Element: Virtual
-Location: Bank
-What unusual place did this plane land in 2009?
-Photo URL: http://sigmaecho.io/static/misc/us_airways.jpg
+>Location: Bank
+>What unusual place did this plane land in 2009?
+>Photo URL: http://sigmaecho.io/static/misc/us_airways.jpg
 ![](assets/us_airways.jpg")
 
 `flag{hudson}` 
 
 **Challenge 21 - Et Tu Brute?**
 >Element: Virtual
-Location: Bank
-One of your covert operators has managed to extract the following encrypted message from an enemy mainframe: 'Iodj{F3v4u_$4o4g}'. Can you decode it?
+>Location: Bank
+>One of your covert operators has managed to extract the following encrypted message from an enemy mainframe: 'Iodj{F3v4u_$4o4g}'. Can you decode it?
 
 `flag{C3s4r_$4l4d}` 
 
 **Challenge 22 - Blaise De What??**
 >Element: Virtual
-Location: Bank
-A cryptic string was intercepted from a secret transmission: "xpca{mifhgnke}". The keyword is suspected to be a commonly used English word. Can you reveal the flag?
+>Location: Bank
+>A cryptic string was intercepted from a secret transmission: "xpca{mifhgnke}". The keyword is suspected to be a commonly used English word. Can you reveal the flag?
 
 `flag{vendetta}` 
 
