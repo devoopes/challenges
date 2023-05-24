@@ -175,7 +175,7 @@ Photo URL: http://sigmaecho.io/static/misc/plug.jpg
 Location: Bank
 We found this bank note at the scene. But we can't tell what country its from.
 Photo URL: http://sigmaecho.io/static/misc/money.jpg
-<img url="assets/money.jpg" />
+![](assets/money.jpg")
 
 `flag{israel}`
 
@@ -184,7 +184,7 @@ Photo URL: http://sigmaecho.io/static/misc/money.jpg
 Location: Bank
 This device was intercepted in the mail. Who is its manufacturer? (IE: flag{manufacturer_name})
 Photo URL: http://sigmaecho.io/static/misc/part.jpg
-<img url="assets/part.jpg" />
+![](assets/part.jpg")
 
 `flag{Hyundai}`
 
@@ -193,7 +193,7 @@ Photo URL: http://sigmaecho.io/static/misc/part.jpg
 Location: Bank
 What unusual place did this plane land in 2009?
 Photo URL: http://sigmaecho.io/static/misc/us_airways.jpg
-<img url="assets/us_airways.jpg" />
+![](assets/us_airways.jpg")
 
 `flag{hudson}` 
 
@@ -213,7 +213,7 @@ A cryptic string was intercepted from a secret transmission: "xpca{mifhgnke}". T
 
 ## Badge Challenges
 
-[Link to firmware](AWS)
+[Link to firmware](https://tc0xb.s3.us-east-2.amazonaws.com/TC_0xB.bin)
 
 **Challenge 23 - Connected!**
 >Element: Physical
@@ -238,5 +238,4 @@ _Note you can also get both these flags from dumping the firmware and running st
 Location: Badge 3
 
 We didn't solve this flag in time, but I did want to do a breakdown of how to get this after we got a solution from the organizers at closing. 
--- bufferoverflow --
 
