@@ -30,9 +30,7 @@ Our team score at the end of the game.
 Congrats on everyone for first place!
 ![](screenshots/group.jpg)
 
-![](https://youtu.be/yFZ4zcuyLTY)
-
-Challenges were listed in the in game menu, but the first thing we did was take the device apart which netted us our first flag. We then attached wires for UART and started to work on the rest. 
+[Challenges](https://youtu.be/yFZ4zcuyLTY) were listed in the in game menu, but the first thing we did was take the device apart which netted us our first flag. We then attached wires for UART and started to work on the rest. 
 
 ![](screenshots/open1.jpg)
 ![](screenshots/uart.jpg)
