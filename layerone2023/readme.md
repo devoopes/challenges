@@ -127,9 +127,10 @@ decrypted B2B: 7f 91 60 07 00 00 00 00 00 00
 decrypted B2B: 52 00 00 00 00 00 00 00 28 ed
 decrypted B2B: 76 4a e0 38 1f 07 58 5d 00 3f
 decrypted B2B: 91 45 84 68 3d 89 a6 da 8a e1
-decrypted B2B: 83 32 4e d9 06 ea f9 f7 be 20```
+decrypted B2B: 83 32 4e d9 06 ea f9 f7 be 20
+```
 
-After running diff on a few output we found the error in our ways and were able to put the 7 zip back together to get the flag!
+After running diff on a few outputs we found the error in our ways and were able to put the 7 zip back together to get the flag!
 
 `flag!HS45UGood`
 
