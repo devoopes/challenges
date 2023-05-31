@@ -21,7 +21,9 @@ Our team consisted of the local [DC818](https://dc818.org/) crew of
 - SickPea
 - wasabi
 
+Our team score at the end of the game.
 ![](screenshots/scoreboard.jpg)
+![](screenshots/group.jpg)
 
 Challenges were listed in the in game menu, but the first thing we did was take the device apart which netted us our first flag. We then attached wires for UART and started to work on the rest. 
 
@@ -65,7 +67,7 @@ You can drop the badge at any time and get a new one.
 
 You can buy this flag for in game currency at the in game store. 
 
-![](assets/riverside.jpg)
+![](screenshots/riverside.jpg)
 
 **Warranty Violation**
 > 50 Points - Who needs a warranty anyways
@@ -112,7 +114,7 @@ Again this was easily achieved in the first few minutes of playing.
 **Locks You Own**
 > 200 Points - Scorche has a secret in the middle of his talk
 
-On the hour, every hour you could get into this room. We ended up recording the talk for an hour on my phone. Then playing the video back at 2x to watch for the flag. The talk can be found [here](https://youtu.be/EMUb49nOjt0).
+On the hour, every hour you could get into this room. We ended up recording the talk for an hour on my phone. Then playing the video back at 2x to watch for the flag. The talk can be found [here](https://youtu.be/SJ5n_k8A3vI).
 
 `FLAG[R3SPONSIBL3_BURGL4R]`
 
@@ -138,14 +140,17 @@ After running diff on a few outputs we found the error in our ways and were able
 
 **Morfrir's Riddle 1**
 > 100 Points - Find and defeat Morfrir's first lost puzzle
+
 ![](screenshots/MorfrirsRiddle1.jpg)
 
 **Morfrir's Riddle 2**
 > 150 Points - Find and defeat Morfrir's second lost puzzle
+
 ![](screenshots/MorfrirsRiddle2.jpg)
 
 **Morfrir's Riddle 3**
 > 200 Points - Find and defeat Morfrir's third lost puzzle
+
 ![](screenshots/MorfrirsRiddle3.jpg)
 
 Which translated from [Braille](https://www.perkins.org/wp-content/uploads/2021/01/Braille_alphabet_feature_image.png) to the flag.
@@ -233,6 +238,7 @@ An invisible maze in the western part of the map.
 
 **Leap of Faith**
 > 300 Points - Complete the Leap of Faith in the Mountians
+
 ![](screenshots/leap.jpg)
 
 **Impossible TASk**
