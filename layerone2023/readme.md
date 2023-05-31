@@ -6,6 +6,8 @@
 This year's Intercept put on by Datagram, [Joe Rozner](https://twitter.com/jrozner), and jk along with several play testers and helpers. Was designed around a custom PCB running an ESP with a screen inside a Gameboy Advance shell. This was then connected to a game server over wifi where players could explore the world together or try to kill one another. Overall design was loosely based off the Zelda, Link to the past Gameboy game. There were hardware, software, network and game challenges in the world and gaming device. Batteries not included. (You had to use power over USB)
 
 ![](screenshots/main.jpg)
+![](screenshots/world.jpg)
+
 
 Our team consisted of the local [DC818](https://dc818.org/) crew of 
 - babint
@@ -19,13 +21,15 @@ Our team consisted of the local [DC818](https://dc818.org/) crew of
 - SickPea
 - wasabi
 
-Challenges were listed in the in game menu, but the first thing we did was take the device apart which netted us our first flag. 
+![](screenshots/scoreboard.jpg)
+
+Challenges were listed in the in game menu, but the first thing we did was take the device apart which netted us our first flag. We then attached wires for UART and started to work on the rest. 
 
 ![](screenshots/open1.jpg)
+![](screenshots/uart.jpg)
+![](screenshots/flags.jpg)
 
 Once we got up and running we were able to capture and document all the challenges in a [spreadsheet](https://docs.google.com/spreadsheets/d/1SsAKzw9rl09uj6gT0g5-5xxn3X7XCy7v1EsPyviYCmM/edit?usp=sharing) as having over 40 challenges and who was working on what quickly got out of scope. 
-
-![](https://youtu.be/EMUb49nOjt0)
 
 
 **Handle It it** 
@@ -44,6 +48,8 @@ This is your first adventure. If you head north from the starting village you wi
 
 In town upon speaking to the innkeeper he will ask you to pick dog or cat. You can repeat the interaction to get both flags. 
 
+![](screenshots/adopt.jpg)
+
 **Gran Torino** 
 > 50 Points - What was it like to kill a man?
 
@@ -58,6 +64,8 @@ You can drop the badge at any time and get a new one.
 > 50 Points - Riverside got this flag on the CTF black market
 
 You can buy this flag for in game currency at the in game store. 
+
+![](assets/riverside.jpg)
 
 **Warranty Violation**
 > 50 Points - Who needs a warranty anyways
@@ -104,14 +112,28 @@ Again this was easily achieved in the first few minutes of playing.
 **Locks You Own**
 > 200 Points - Scorche has a secret in the middle of his talk
 
-On the hour, every hour you could get into this room. We ended up recording the talk for an hour on my phone. Then playing the video back at 2x to watch for the flag. The talk can be found [here]().
+On the hour, every hour you could get into this room. We ended up recording the talk for an hour on my phone. Then playing the video back at 2x to watch for the flag. The talk can be found [here](https://youtu.be/EMUb49nOjt0).
 
 `FLAG[R3SPONSIBL3_BURGL4R]`
 
 **Any Technical Talks?**
 > 500 Points - ChrisB2B is giving a great technical talk
 
-This was another talk but it was given in all HEX. We hooked up UART and recorded the output but the output never ended up outputting the right info. We 
+This was another talk but it was given in all HEX. We hooked up UART and recorded the output but the output never ended up outputting the right info. 
+
+```
+decrypted B2B: 37 7a bc af 27 1c 00 04 94 96
+decrypted B2B: 7f 91 60 07 00 00 00 00 00 00
+decrypted B2B: 52 00 00 00 00 00 00 00 28 ed
+decrypted B2B: 76 4a e0 38 1f 07 58 5d 00 3f
+decrypted B2B: 91 45 84 68 3d 89 a6 da 8a e1
+decrypted B2B: 83 32 4e d9 06 ea f9 f7 be 20```
+
+After running diff on a few output we found the error in our ways and were able to put the 7 zip back together to get the flag!
+
+`flag!HS45UGood`
+
+![](screenshots/b2b.jpg)
 
 **Morfrir's Riddle 1**
 > 100 Points - Find and defeat Morfrir's first lost puzzle
@@ -119,7 +141,7 @@ This was another talk but it was given in all HEX. We hooked up UART and recorde
 
 **Morfrir's Riddle 2**
 > 150 Points - Find and defeat Morfrir's second lost puzzle
-![](screenshots/MorfrirsRiddle2a.jpg)![](screenshots/MorfrirsRiddle2b.jpg)
+![](screenshots/MorfrirsRiddle2.jpg)
 
 **Morfrir's Riddle 3**
 > 200 Points - Find and defeat Morfrir's third lost puzzle
@@ -139,9 +161,13 @@ The questions were:
 - How many work ram chips are in a NeoGeo 6 slot motherboard: 8
 - DMA
 
+ ![](screenshots/dom.jpg)
+
 **FCC Violation**
 > 100 Points - Intercept a staff radio comms check
- Once you obtain a Goon badge this would occasionally popup on screen. 
+ Once you obtain a Goon badge this would occasionally popup on screen. You also had the ability to send to all goons. 
+
+ ![](screenshots/goon.jpg)
 
 `flag[COMMS_CHECK]`
 
@@ -154,6 +180,8 @@ The questions were:
 > 100 Points - I heard that the firmware can be... stringy
 
 `FLAG[D1D_Y0U_US3_STR1NGS]`
+
+ ![](screenshots/forgottenrealms2.jpg)
 
 **Uncharted Territory**
 > 300 Points - The scenic view of the lake hides an underwater secret
@@ -168,8 +196,12 @@ In the Dev Logs there was a `town_dig.txt` file.
 **Save the Princess**
 > 100 Points - Defeat the boss in the Eastern Castle
 
+The second boss
+
 **Bombtastic**
 > 300 Points - Defeature JBOSS, the boss of the Swamp Dungeon
+
+![](screenshots/bombastic.jpg)
 
 **Ya Look Dusty**
 > 300 Points - Defeat the boss of the Desert Palace 
@@ -189,13 +221,18 @@ In the Dev Logs there was a `town_dig.txt` file.
 **Rigged Deck**
 > 400 Points - Beat cesio at his own game
 
+![](screenshots/adopt.jpg)
+
 **Spannungsbogen**
 > 150 Points - Become one with the desert
 
 An invisible maze in the western part of the map. 
 
+![](screenshots/maze.jpg)
+
 **Leap of Faith**
 > 300 Points - Complete the Leap of Faith in the Mountians
+![](screenshots/leap.jpg)
 
 **Impossible TASk**
 > 250 Points - Complete the Spike Maze in the Archmage Tower
@@ -214,6 +251,8 @@ This was part of CharlieX's button badge.
 **Black Magic**
 > 100 Points - There is a flag in the MFP Demo Party Entry. In real life (Shh, it's ok) 
 
-Thanks DG for this freebee.
+Thanks DG for this freebie.
 
 `flag[d3m0_d33z_fl4gs]`
+
+![](screenshots/troll.jpg)
