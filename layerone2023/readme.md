@@ -1,5 +1,5 @@
 # 2023 [LayerOne](https://www.layerone.org/) Inercept Hardware CTF Challenge
-- The Legend of LayerOne, A Link to the Max
+- The Legend of LayerOne, A Link to the Hax
 
 ![](assets/intercept_announce.png)
 
