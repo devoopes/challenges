@@ -10,6 +10,8 @@ This year's Intercept put on by Datagram, [Joe Rozner](https://twitter.com/jrozn
 ![](screenshots/rules1.jpg)
 ![](screenshots/rules2.jpg)
 
+### Our Team
+
 Our team consisted of the local [DC818](https://dc818.org/)
 - babint
 - devx00
@@ -24,9 +26,11 @@ Our team consisted of the local [DC818](https://dc818.org/)
 
 Our team score at the end of the game.
 ![](screenshots/scoreboard.jpg)
+
+Congrats on everyone for first place!
 ![](screenshots/group.jpg)
 
-![(https://img.youtube.com/vi/yFZ4zcuyLTY/0.jpg)](https://youtu.be/yFZ4zcuyLTY)
+![](https://youtu.be/yFZ4zcuyLTY)
 
 Challenges were listed in the in game menu, but the first thing we did was take the device apart which netted us our first flag. We then attached wires for UART and started to work on the rest. 
 
@@ -36,7 +40,7 @@ Challenges were listed in the in game menu, but the first thing we did was take 
 
 Once we got up and running we were able to capture and document all the challenges in a [spreadsheet](https://docs.google.com/spreadsheets/d/1SsAKzw9rl09uj6gT0g5-5xxn3X7XCy7v1EsPyviYCmM/edit?usp=sharing) as having over 40 challenges and who was working on what quickly got out of scope. 
 
-
+### Challenges
 
 **Handle It it** 
 > 25 Points - I don't have an identity until I have a handle
