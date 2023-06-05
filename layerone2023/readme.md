@@ -14,7 +14,7 @@ This year's Intercept put on by Datagram, [Joe Rozner](https://twitter.com/jrozn
 
 Our team consisted of the local [DC818](https://dc818.org/)
 - babint
-- devx00
+- [devx00](https://github.com/devx00)
 - blinkingthing
 - Dank
 - [devoopes](https://github.com/devoopes/)
@@ -108,7 +108,8 @@ then the length of the `playerKeyboardLen` (which is the length of our input + p
 then finally our padded input text encrypted with our secret key. 
 
 We wrote a game client that allowed us to send different types of commands and data to the server.
-Below is a snippet from that client that was used for crafting the text packet.
+Below is a snippet from that client that was used for crafting the text packet. The full (unfinished) client
+can be found [on github here](https://github.com/devx00/intercept_game_client).
 
 ```python
 #!/usr/bin/env python3
