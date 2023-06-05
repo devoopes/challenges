@@ -14,7 +14,7 @@ This year's Intercept put on by Datagram, [Joe Rozner](https://twitter.com/jrozn
 
 Our team consisted of the local [DC818](https://dc818.org/)
 - babint
-- devx00
+- [devx00](https://github.com/devx00)
 - blinkingthing
 - Dank
 - [devoopes](https://github.com/devoopes/)
@@ -68,6 +68,115 @@ You get this after killing your first player. I chose to kill my friend [krux](h
 
 You can drop the badge at any time and get a new one. 
 
+We determined we would need to find a way to register with an all lowercase username in order to get this badge.
+This required being able to forge specific packets to the server because the in-game prompt only supported
+uppercase characters.
+
+After completing [Throw Your Hood Up](#throw-your-hood-up) we had the general knowledge of how to send 
+commands to the server. After further reading of the source from the git repo we found the relevant code for this
+challenge in the enc.c file shown below.
+
+```c
+// Client encryption setup
+aes_encrypt2 = heap_caps_malloc(sizeof(mbedtls_aes_context), MALLOC_CAP_SPIRAM);
+mbedtls_aes_init(aes_encrypt2);
+mbedtls_aes_setkey_enc(aes_encrypt2, secret_key, 256);
+
+// encrypted text comms to server
+sendBuf[0] = 0x3;                               //Send text
+sendBuf[1] = player_id;
+
+printf(sending %sn, playerKeyboardBuffer);
+
+int playerKeyboardLen = strlen(playerKeyboardBuffer);
+playerKeyboardLen += pkcs7_padding_pad_buffer((uint8_t*)playerKeyboardBuffer, strlen(playerKeyboardBuffer), sizeof(playerKeyboardBuffer), 16 );
+
+memset(&iv, '\x00', 16);
+mbedtls_aes_crypt_cbc(aes_encrypt2, MBEDTLS_AES_ENCRYPT, playerKeyboardLen, iv, (uint8_t*) playerKeyboardBuffer, (uint8_t *) sendBuf + 4);
+memset(&iv, '\x00', 16);
+
+*((uint16_t*)(sendBuf + 2)) = playerKeyboardLen;
+//memcpy((char *)(sendBuf + 4), playerKeyboardBuffer, playerKeyboardLen);
+
+crypto_auth_hmacsha256(sendBuf + 4 + playerKeyboardLen, sendBuf, 4 + playerKeyboardLen, secret_key);
+send(udpSock, (char *) sendBuf, 4 + playerKeyboardLen + crypto_auth_hmacsha256_BYTES, 0);
+
+```
+
+As you can see, in order to send text we had to send command number 3, followed by our userID,
+then the length of the `playerKeyboardLen` (which is the length of our input + pkcs7 padding),
+then finally our padded input text encrypted with our secret key. 
+
+We wrote a game client that allowed us to send different types of commands and data to the server.
+Below is a snippet from that client that was used for crafting the text packet. The full (unfinished) client
+can be found [on github here](https://github.com/devx00/intercept_game_client).
+
+```python
+#!/usr/bin/env python3
+from enum import IntEnum
+from struct import pack, unpack
+from Crypto.Cipher import AES
+from Crypto.Util.Padding import pad
+import hmac
+
+
+def sign(data, secret_key):
+    h = hmac.new(secret_key, data, "sha256")
+    hmacSignature = h.digest()[:32]
+    return hmacSignature
+
+
+class Op(IntEnum):
+    Input = 1
+    Magic = 2
+    Text = 3
+
+
+class RequestPacket:
+
+    def __init__(self,
+                 opcode: int,
+                 player_id: int,
+                 data: int | bytes):
+        self.opcode = opcode
+        self.player_id = player_id
+        self.data = data
+
+    def encrypted_data(self, secret_key: bytes) -> bytes:
+        assert type(self.data) is bytes
+
+        cipher = AES.new(secret_key, AES.MODE_CBC, iv=b"\x00" * 16)
+        padded_data = pad(self.data, block_size=16)
+        ct = cipher.encrypt(padded_data)
+        return ct
+
+    def serialize(self, secret_key: bytes) -> bytes:
+        enc_data = b""
+        data_field = self.data
+
+        if type(self.data) is bytes:
+            enc_data = self.encrypted_data(secret_key)
+            data_field = len(enc_data)
+            packed_data = pack("<BBH", self.opcode, self.player_id, data_field)
+        else:
+            packed_data = pack("<BBHHH", self.opcode, self.player_id, data_field, 3, 0)
+            packed_data += enc_data
+            packed_data += sign(packed_data, secret_key)
+
+        return packed_data
+
+# An example Text request packet could be created like this:
+# RequestPacket(Op.Text, player_id, b"Some text to send to the server")
+```
+
+Once we had this built out, all we needed to do to get the flag was to drop our badge
+and attempt to get a new one. When the username input screen came up in the game instead of 
+entering our name through the UI we instead sent a text packet to the server with lowercase text.
+
+Immediately after doing that we were awarded the flag, and we had gained additional abilities with
+our new goon status.
+
+
 **OSINT Flags** 
 > 50 Points - Riverside got this flag on the CTF black market
 
@@ -94,7 +203,72 @@ In the firmware dump we found a git repo in a .tgz In this there were logs and o
 **Throw Your Hood Up**
 > 100 Points - The server will award you a flag - but only if you send it a specific command
 
+After extracting the git repo from the firmware we found source code snippets that included details about how commands are processed.
+Specifically, in the file hmac.py (shown below), we could see how each command packet was constructed and signed.
 
+```python
+# Server HMAC parsing code reference
+# Player HMAC stored in NVS on device
+# -ben
+udpCmd = data[0]
+udpPlayerId = data[1]
+
+if udpPlayerId > len(playerAccounts) - 1:
+    print(f'got a too high player id of {udpPlayerId}')
+    continue
+
+thePlayerAccount = playerAccounts[udpPlayerId]
+
+h = hmac.new(thePlayerAccount['key'], data[:-32], sha256)
+hmacSignature = h.digest()[:32]
+
+if data[-32:] != hmacSignature:
+        print('bad hmac from {} {}'.format(hex(data[1]),addr))
+        continue
+
+# udpCmd 1 = input + text/other
+thePlayerAccount['input'] = struct.unpack('<H', data[2:4])[0]
+
+# udpCmd 2 = magic select
+#todo document this phil
+
+# other udpCmds - TODO! -ben
+```
+Using this information, and the secret key we managed to extract from the NVS,
+we built this script which tried every command between 0 and 255 since we didnt
+know which command would award the flag. 
+
+```python
+#!/usr/bin/env python3
+from pwn import *
+from time import sleep
+from base64 import b64decode
+import hmac
+
+secret_key = b64decode(b"PE0ggwOLv5bBY2cI4fbwPMmpTVDGxHHV5rMKhRvGxLc=")
+
+UDP_IP = "192.168.1.2"
+UDP_PORT = 2004
+USERID = 16
+
+def sign(data):
+    h = hmac.new(secret_key, data, "sha256")
+    hmacSignature = h.digest()[:32]
+    return hmacSignature
+
+def send_cmd(cmd, userId, timeout=1):
+    MESSAGE = p8(cmd) # command
+    MESSAGE += p8(userId) # playerId
+    MESSAGE += sign(MESSAGE)
+    r.send(MESSAGE)
+
+r = remote(UDP_IP, UDP_PORT, typ="udp")
+
+for i in range(256):
+    send_cmd(i, USERID)
+    sleep(1)
+
+```
 
 **Born To Kill**
 >20 Points - Get 5 monster kills using any melee weapon
@@ -232,6 +406,35 @@ The second boss
 
 **Rigged Deck**
 > 400 Points - Beat cesio at his own game
+
+Although we didn't solve this one during the competition I believe the answer was to send the
+number `217279`. We were able to bruteforce this number by guessing seeds until the aces were all
+at the start of the deck. Here is the code that calculated that.
+
+```python
+#!/usr/bin/env python3
+import random, itertools
+
+def check_player_seed(playerSeed: int):
+    vals = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king', 'ace']
+    suits = ['spades', 'clubs', 'hearts', 'diamonds']
+
+    deck = list(itertools.product(vals, suits))
+
+    cardRand = random.Random()
+    cardRand.seed(playerSeed)
+    cardRand.shuffle(deck)
+    return all(c[0] == 'ace' for c in deck[:4])
+
+
+i = 0
+while not check_player_seed(i):
+    i += 1
+    print(f"Checking {i:05d}", end="\r")
+
+print(f"Found Valid Seed: {i:05d}")
+
+```
 
 ![](screenshots/adopt.jpg)
 
