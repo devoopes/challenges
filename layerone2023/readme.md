@@ -406,6 +406,35 @@ The second boss
 **Rigged Deck**
 > 400 Points - Beat cesio at his own game
 
+Although we didn't solve this one during the competition I believe the answer was to send the
+number `217279`. We were able to bruteforce this number by guessing seeds until the aces were all
+at the start of the deck. Here is the code that calculated that.
+
+```python
+#!/usr/bin/env python3
+import random, itertools
+
+def check_player_seed(playerSeed: int):
+    vals = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king', 'ace']
+    suits = ['spades', 'clubs', 'hearts', 'diamonds']
+
+    deck = list(itertools.product(vals, suits))
+
+    cardRand = random.Random()
+    cardRand.seed(playerSeed)
+    cardRand.shuffle(deck)
+    return all(c[0] == 'ace' for c in deck[:4])
+
+
+i = 0
+while not check_player_seed(i):
+    i += 1
+    print(f"Checking {i:05d}", end="\r")
+
+print(f"Found Valid Seed: {i:05d}")
+
+```
+
 ![](screenshots/adopt.jpg)
 
 **Spannungsbogen**
